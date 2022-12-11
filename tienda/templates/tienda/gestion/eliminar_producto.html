@@ -1,0 +1,31 @@
+{% extends 'tienda/base.html' %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <h2>Eliminar producto: "{{ producto.nombre }}"</h2>
+        <table class="table">
+            <tr>
+                <td>Modelo:</td>
+                <td>{{ producto.modelo }}</td>
+            </tr>
+            <tr>
+                <td>Marca:</td>
+                <td>{{ producto.marca }}</td>
+            </tr>
+            <tr>
+                <td>Unidades:</td>
+                <td>{{ producto.unidades }}</td>
+            </tr>
+            <tr>
+                <td>Precio:</td>
+                <td>{{ producto.precio }}</td>
+            </tr>
+            <tr>
+                <td>Detalles:</td>
+                <td>{{ producto.detalles }}</td>
+            </tr>
+        </table>
+        <input class="btn btn-danger" type="submit" value="Eliminar">
+        <a class="btn btn-primary" href="{% url 'listado productos' %}">Regresar</a>
+    </form>
+{% endblock %}

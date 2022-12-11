@@ -1,0 +1,9 @@
+{% extends 'tienda/base.html' %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-outline-secondary" type="submit" value="Editar producto">
+    </form>
+    <a class="btn btn-primary" href="{% url 'listado productos' %}">Regresar</a>
+{% endblock %}

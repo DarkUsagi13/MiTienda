@@ -1,0 +1,14 @@
+{% extends 'tienda/base.html' %}
+{% block content %}
+    <h2>Busca un artículo!</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.nombre }}
+    <input type="submit" value="Buscar">
+    </form>
+    {% if filtro %}
+        {% for f in filtro %}
+            <p>Nombre: {{f.nombre}}</p>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

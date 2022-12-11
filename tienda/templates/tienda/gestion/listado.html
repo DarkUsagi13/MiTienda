@@ -1,0 +1,41 @@
+{% extends 'tienda/base.html' %}
+{% block content %}
+    <div>
+        <header>
+            <nav class="py-4">
+                <ul class="list-group">
+                    <li class="list-group-item"><a class="nav-link" href="{% url 'crear marca' %}">Crear nueva marca</a></li>
+                    <li class="list-group-item"><a class="nav-link" href="{% url 'crear producto' %}">Crear nuevo producto</a></li>
+                    <li class="list-group-item"><a class="nav-link" href="{% url 'buscar' %}">Buscar producto</a></li>
+                </ul>
+            </nav>
+            <div>
+                <table class="table">
+                    <tr class="table-primary">
+                        <th scope="col">Marca</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Unidades</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Detalles</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                {% for p in productos %}
+                    <tr>
+                        <td>{{ p.marca }}</td>
+                        <td>{{ p.nombre }}</td>
+                        <td>{{ p.modelo }}</td>
+                        <td>{{ p.unidades }}</td>
+                        <td>{{ p.precio }}</td>
+                        <td>{{ p.detalles }}</td>
+                        <td>
+                            <a class="btn btn-outline-primary" href="{% url 'editar producto' p.pk %}">Editar</a>
+                            <a class="btn btn-outline-danger" href="{% url 'eliminar producto' p.pk %}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+        </header>
+    </div>
+{% endblock %}
